@@ -1,0 +1,44 @@
+{
+  "name": "typescript-kit",
+  "version": "0.0.1",
+  "description": "Demo of React with typescript",
+  "author": "Kyo",
+  "keywords": [
+    "react",
+    "component",
+    "reactjs"
+  ],
+  "main": "./build",
+  "scripts": {
+    "start": "webpack-dev-server --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fondadam2016/reactjs-init"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.129",
+    "@types/node": "^12.0.2",
+    "@types/react": "^16.8.17",
+    "@types/react-dom": "^16.8.4",
+    "lodash": "^4.4.11",
+    "react": "^16.8",
+    "react-dom": "^16.8.6"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-core": "^6.8.0",
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.8.5",
+    "html-webpack-plugin": "^3.2.0",
+    "rimraf": "^2.5.2",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^0.13.1",
+    "typescript": "^3.4.5",
+    "url-loader": "^0.5.7",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.3.1"
+  }
+}
