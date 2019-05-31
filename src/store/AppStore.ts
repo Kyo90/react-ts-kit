@@ -1,20 +1,33 @@
-import {createStore} from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux'
+import createSagaMiddleware from 'redux-saga'
 import reducers from './reducers'
-import {Task, Name} from '../model'
-export interface IAppState {
-  tasks: Task[],
-  name: Name
-}
+import { Task, Name } from '../model'
+import rootSaga from './sagas'
+
+const sagaMiddleware = createSagaMiddleware()
+
+const middlewares = applyMiddleware(sagaMiddleware)
+
+const enhancers = compose(
+  middlewares
+)
 
 const INITIAL_STATE: IAppState = {
   tasks: [],
-  name: {name: ""}
+  name: { name: '' },
 }
 
 const appStore = createStore(
   reducers,
   INITIAL_STATE as any,
-  ((window) as any).devToolsExtension &&
-  ((window) as any).devToolsExtension());
+  enhancers
+)
 
-export { appStore };
+export { appStore }
+
+export interface IAppState {
+  tasks: Task[]
+  name: Name
+}
+
+sagaMiddleware.run(rootSaga)

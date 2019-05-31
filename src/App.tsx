@@ -2,6 +2,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import {Task} from './model'
 import TaskForm from './components/task-form/TaskForm'
+import LoginForm from './components/login-form/LoginForm'
 import TaskList from './components/task-list/TaskList'
 import { IAppState } from './store/AppStore'
 interface Props {
@@ -18,7 +19,7 @@ class App extends React.Component<Props, {}> {
     return (
       <div className="main">
         <h3>React Todo App1</h3>
-        <TaskForm />
+        <LoginForm />
         <TaskList tasks={tasks} />
       </div>
     )

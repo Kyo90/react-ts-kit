@@ -16,6 +16,9 @@ module.exports = {
     compress: true,
     historyApiFallback: true,
     port: 3030,
+    proxy:{
+      '/': 'http://test.api.zhangkong365.com/'
+    }
   },
 
   resolve: {
