@@ -1,9 +1,6 @@
 import { all, throttle, call, } from 'redux-saga/effects';
-import {login, BaseAction} from '../actions'
+import {BaseAction, A} from '../actions'
 import {cretateToken} from '../../utils/api'
-import {generateNewNumber} from '../../service'
-
-
 
 
 function* loginSaga(action: BaseAction) {
@@ -15,6 +12,6 @@ function* loginSaga(action: BaseAction) {
 
 export function* watchUser() {
   yield all([
-    throttle(1000, login, loginSaga)
+    throttle(1000, A.CreateToken, loginSaga)
   ])
 }

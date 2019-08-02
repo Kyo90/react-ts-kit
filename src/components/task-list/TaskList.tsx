@@ -1,10 +1,12 @@
 import * as React from 'react'
+import { connect } from 'react-redux'
+import { IAppState } from '../../store/reducers'
 import { Task } from '../../model'
 import TaskCloseButton from '../task-close-button/TaskCloseButton';
 interface IProps {
   tasks: Task[]
 }
-export default class TaskList extends React.Component<IProps, any> {
+class TaskList extends React.Component<IProps, any> {
   render() {
     return (
       <table>
@@ -33,3 +35,11 @@ export default class TaskList extends React.Component<IProps, any> {
     })
   }
 }
+
+
+
+const mapStateToProps = (state: IAppState) => ({
+  tasks: state.tasks,
+})
+
+export default connect(mapStateToProps)(TaskList)

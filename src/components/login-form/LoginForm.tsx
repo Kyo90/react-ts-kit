@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators, Dispatch } from "redux";
 import { login } from '../../store/actions'
 interface IState {
   username: string
@@ -10,7 +11,7 @@ interface IProps {
   login: any
 }
 
-class TaskForm extends React.Component<IProps, IState> {
+class LoginForm extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props)
     this.state = {
@@ -50,6 +51,7 @@ class TaskForm extends React.Component<IProps, IState> {
 
   private handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    console.log('aaaaaa')
     this.login()
   }
 
@@ -72,11 +74,13 @@ class TaskForm extends React.Component<IProps, IState> {
   }
 }
 
-const mapActionsToProps = {
-  login,
+const mapActionsToProps = (dispatch:any) => {
+  return bindActionCreators({
+    login
+  }, dispatch) 
 }
 
 export default connect(
   undefined,
   mapActionsToProps,
-)(TaskForm)
+)(LoginForm)

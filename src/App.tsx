@@ -1,33 +1,23 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
-import {Task} from './model'
-import TaskForm from './components/task-form/TaskForm'
+import { Route, Switch } from 'react-router-dom'
+import {ConnectedRouter} from 'connected-react-router';
 import LoginForm from './components/login-form/LoginForm'
 import TaskList from './components/task-list/TaskList'
-import { IAppState } from './store/AppStore'
-interface Props {
-    tasks: Task[]
-}
-
-class App extends React.Component<Props, {}> {
-  renderThumbnails = () => {}
-
-  renderComponentEditor = () => {}
+import {history} from './store/AppStore'
+export default class App extends React.Component<any, {}> {
 
   render() {
-      const {tasks} = this.props;
     return (
-      <div className="main">
-        <h3>React Todo App1</h3>
-        <LoginForm />
-        <TaskList tasks={tasks} />
-      </div>
+      <ConnectedRouter history={history}>
+        <div className="main">
+          <Switch>
+            <Route path="/" component={LoginForm}/>
+            <Route path="/login" component={LoginForm}/>
+          </Switch>
+        </div>
+      </ConnectedRouter>
     )
   }
 }
 
-const mapStateToProps = (state: IAppState) => ({
-  tasks: state.tasks,
-})
 
-export default connect(mapStateToProps)(App)
