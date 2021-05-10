@@ -28,7 +28,7 @@
     "@types/react-router-dom": "^4.3.4",
     "connected-react-router": "^6.5.2",
     "history": "^4.9.0",
-    "lodash": "^4.4.11",
+    "lodash": "^4.17.21",
     "prettier": "^1.17.1",
     "react": "^16.8",
     "react-dom": "^16.8.6",
